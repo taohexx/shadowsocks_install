@@ -60,6 +60,22 @@ check_installed(){
     fi
 }
 
+check_version(){
+    check_installed "ss-server"
+    if [ $? -eq 0 ]; then
+        installed_ver=$(ss-server -h | grep shadowsocks-libev | cut -d' ' -f2)
+        get_latest_version
+        latest_ver=$(echo ${ver} | sed -e 's/^[a-zA-Z]//g')
+        if [ "${latest_ver}" == "${installed_ver}" ]; then
+            return 0
+        else
+            return 1
+        fi
+    else
+        return 2
+    fi
+}
+
 print_info(){
     clear
     echo "#############################################################"
@@ -82,22 +98,22 @@ check_sys(){
     if [[ -f /etc/redhat-release ]]; then
         release="centos"
         systemPackage="yum"
-    elif cat /etc/issue | grep -q -E -i "debian"; then
+    elif cat /etc/issue | grep -Eqi "debian"; then
         release="debian"
         systemPackage="apt"
-    elif cat /etc/issue | grep -q -E -i "ubuntu"; then
+    elif cat /etc/issue | grep -Eqi "ubuntu"; then
         release="ubuntu"
         systemPackage="apt"
-    elif cat /etc/issue | grep -q -E -i "centos|red hat|redhat"; then
+    elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"; then
         release="centos"
         systemPackage="yum"
-    elif cat /proc/version | grep -q -E -i "debian"; then
+    elif cat /proc/version | grep -Eqi "debian"; then
         release="debian"
         systemPackage="apt"
-    elif cat /proc/version | grep -q -E -i "ubuntu"; then
+    elif cat /proc/version | grep -Eqi "ubuntu"; then
         release="ubuntu"
         systemPackage="apt"
-    elif cat /proc/version | grep -q -E -i "centos|red hat|redhat"; then
+    elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
         release="centos"
         systemPackage="yum"
     fi
@@ -156,19 +172,27 @@ pre_install(){
         exit 1
     fi
 
-    # Check installed
-    check_installed "ss-server"
-    if [ $? -eq 0 ]; then
-        echo "Shadowsocks-libev has been installed, nothing to do..."
+    # Check version
+    check_version
+    status=$?
+    if [ ${status} -eq 0 ]; then
+        echo "Latest version ${shadowsocks_libev_ver} has been installed, nothing to do..."
+        echo
         exit 0
+    elif [ ${status} -eq 1 ]; then
+        echo "Installed version: ${installed_ver}"
+        echo "Latest version: ${latest_ver}"
+        echo "Upgrade shadowsocks libev to latest version..."
+        ps -ef | grep -v grep | grep -i "ss-server" > /dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            /etc/init.d/shadowsocks stop
+        fi
+    elif [ ${status} -eq 2 ]; then
+        print_info
+        get_latest_version
+        echo "Latest version: ${shadowsocks_libev_ver}"
+        echo
     fi
-
-    print_info
-
-    # Get shadowsocks-libev latest version
-    get_latest_version
-    echo "Get the latest version: ${shadowsocks_libev_ver}"
-    echo
 
     # Set shadowsocks-libev config password
     echo "Please input password for shadowsocks-libev"
