@@ -6,7 +6,7 @@
 
 - Origional Author: Twitter @qiushuiyibing
 
-- Something helpful: If you meet the case `**"-bash permission denied"**` on CentOS when you run script like `*.sh` from this page,please 
+- Something helpful: If you meet the case `"-bash permission denied"` on CentOS when you run script like `*.sh` from this page,please 
   try to use this command `"chmod 777 *.sh"` before you run the script.
   
   e.g: If you wanna run `"shadowsocks-libev.sh"` but meet the `"permission denied"`,use the command `"chmod 777 shadowsocks-libev.sh"`,and 
