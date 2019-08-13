@@ -43,8 +43,6 @@ cd /usr/src && ./tcp.sh
 **plugin program： `obfs-local`** 
 **plugin options： `obfs=http;obfs-host=www.github.com`**
 
-**That's all,Enjoying the internet!**
-
 - Tips: If you meet the case `"-bash permission denied"` on CentOS when you run script like `*.sh` from this page,please 
   try to use this command `"chmod 777 *.sh"` before you run the script.
   
