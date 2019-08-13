@@ -40,8 +40,7 @@ cd /usr/src && ./tcp.sh
 *Press the number `5` to install the script.*
 **Client Setting
 plugin program： `obfs-local`       
-plugin options： `obfs=http;obfs-host=www.github.com`
-**
+plugin options： `obfs=http;obfs-host=www.github.com`**
 **That's all,Enjoying the internet!**
 
 - Tips: If you meet the case `"-bash permission denied"` on CentOS when you run script like `*.sh` from this page,please 
