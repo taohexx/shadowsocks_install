@@ -1,4 +1,4 @@
-- Shadowsocks&Shadowsocks-libev&Shadowsocks-go&ShadowsocksR
+- Four in one
 
 - Origional Author: Twitter [@qiushuiyibing](https://twitter.com/qiushuiyibing)
 
