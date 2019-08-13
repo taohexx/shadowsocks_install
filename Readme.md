@@ -1,5 +1,3 @@
-- Four in one
-
 - Origional Author: Twitter [@qiushuiyibing](https://twitter.com/qiushuiyibing)
 
 - Download the Client from the [release](https://github.com/charlieethan/shadowsocks_install/releases/download/V1.0/Shadowsocks.zip)
