@@ -4,7 +4,7 @@
 
 - Personally,I won't suggest you to use SS-R at president,because it's nearly no one uphold this project anymore
 
-- Origional Author: Twitter @qiushuiyibing
+- Origional Author: Twitter [@qiushuiyibing](https://twitter.com/qiushuiyibing)
 
 - A successful example for `shadowsocks-libev` install on `CentOS 7` with `"Simple-Obfs"(Use Xshell6 on Windows10)`,here's the steps.
 
