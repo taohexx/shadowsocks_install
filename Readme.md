@@ -6,7 +6,7 @@
 
 - Origional Author: Twitter [@qiushuiyibing](https://twitter.com/qiushuiyibing)
 
-- A successful example for `shadowsocks-libev` install on `CentOS 7` with `"Simple-Obfs"(Use Xshell6 on Windows10)`,here's the steps.
+- A successful example for `shadowsocks-libev` install on `CentOS 7` with `"Simple-Obfs"(Use Xshell 6 on Windows10)`,here's the steps.
 
 ```bash
 yum update
