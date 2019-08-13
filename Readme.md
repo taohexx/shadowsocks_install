@@ -38,6 +38,7 @@ cd /usr/src && wget -N --no-check-certificate "https://raw.githubusercontent.com
 cd /usr/src && ./tcp.sh
 ```
 *Press the number `5` to install the script.*
+
 **Client Setting**
 **plugin program： `obfs-local`**       
 **plugin options： `obfs=http;obfs-host=www.github.com`**
