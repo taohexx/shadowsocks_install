@@ -28,7 +28,7 @@ add `,` and press the `Enter` botton to get the next row,copy the code below:*
 "plugin":"obfs-server",
 "plugin_opts":"obfs=http"
 ```
-![example](https://github.com/charlieethan/shadowsocks_install/blob/master/Example.jpg)
+              ![example](https://github.com/charlieethan/shadowsocks_install/blob/master/Example.jpg)
 
 *Press the botton `Esc` to leave,and type `:wq` for saving.If All the things above you have done,you can do the remains.*
 ```bash
