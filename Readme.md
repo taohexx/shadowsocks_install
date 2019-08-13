@@ -41,6 +41,7 @@ cd /usr/src && ./tcp.sh
 **Client Setting
 plugin program： `obfs-local`       
 plugin options： `obfs=http;obfs-host=www.github.com`
+**
 
 **That's all,Enjoying the internet!**
 
