@@ -18,15 +18,38 @@ git submodule update --init --recursive
 make && make install
 vim /etc/shadowsocks-libev/config.json
 ```
-*Then,you should press the letter `i` on the keyboard for editing.Remove the cursor through Arrow key to the bottom of the last letter,
-add `,` and press the `Enter` botton to get the next row,copy the code below:*
+*Then,you can see the config like this below:*
+   {
+    "server":"0.0.0.0",
+    "server_port":9000,
+    "password":"password",
+    "timeout":300,
+    "user":"nobody",
+    "method":"aes-256-gcm",
+    "fast_open":false,
+    "nameserver":"8.8.8.8",
+    "mode":"tcp_and_udp"
+   }
+*Add the code below:*
 ```bash
 "plugin":"obfs-server",
 "plugin_opts":"obfs=http"
 ```
-   ![example](https://github.com/charlieethan/shadowsocks_install/blob/master/Example.jpg)
-
-*Press the botton `Esc` to leave,and type `:wq` for saving.If All the things above you have done,you can do the remains.*
+*The **Final Config** like this:*
+   {
+    "server":"0.0.0.0",
+    "server_port":9000,
+    "password":"password0",
+    "timeout":300,
+    "user":"nobody",
+    "method":"aes-256-gcm",
+    "fast_open":false,
+    "nameserver":"8.8.8.8",
+    "mode":"tcp_and_udp",
+    "plugin":"obfs-server",
+    "plugin_opts":"obfs=http"
+   }
+*Type `:wq` for saving.If All the things above you have done,you can do the remains.*
 ```bash
 /etc/init.d/shadowsocks restart
 cd /usr/src && wget -N --no-check-certificate "https://raw.githubusercontent.com/charlieethan/BBR-Accerate/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
