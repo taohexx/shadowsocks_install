@@ -19,24 +19,24 @@ make && make install
 vim /etc/shadowsocks-libev/config.json
 ```
 *Then,you can see the config like this below:*
-   {
-    "server":"0.0.0.0",
-    "server_port":9000,
-    "password":"password",
-    "timeout":300,
-    "user":"nobody",
-    "method":"aes-256-gcm",
-    "fast_open":false,
-    "nameserver":"8.8.8.8",
+    {
+    "server":"0.0.0.0",    
+    "server_port":9000,    
+    "password":"password",    
+    "timeout":300,    
+    "user":"nobody",    
+    "method":"aes-256-gcm", 
+    "fast_open":false,   
+    "nameserver":"8.8.8.8",    
     "mode":"tcp_and_udp"
-   }
+    }
 *Add the code below:*
 ```bash
 "plugin":"obfs-server",
 "plugin_opts":"obfs=http"
 ```
 *The **Final Config** like this:*
-   {
+    {
     "server":"0.0.0.0",
     "server_port":9000,
     "password":"password0",
@@ -48,7 +48,7 @@ vim /etc/shadowsocks-libev/config.json
     "mode":"tcp_and_udp",
     "plugin":"obfs-server",
     "plugin_opts":"obfs=http"
-   }
+    }
 *Type `:wq` for saving.If All the things above you have done,you can do the remains.*
 ```bash
 /etc/init.d/shadowsocks restart
