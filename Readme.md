@@ -56,7 +56,7 @@ vim /etc/shadowsocks-libev/config.json
 *Type `:wq` for saving.If All the things above you have done,you can do the remains.*
 ```bash
 /etc/init.d/shadowsocks restart
-cd /usr/src && wget -N --no-check-certificate "https://raw.githubusercontent.com/charlieethan/BBR-Accerate/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
+cd /usr/src && wget -N --no-check-certificate "https://raw.githubusercontent.com/charlieethan/bbr/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh
 ```
 *Press the number `1` to install the core,and then press `y` for VPS restarting.After that,enter the code below.*
 ```bash
