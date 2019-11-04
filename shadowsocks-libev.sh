@@ -259,8 +259,8 @@ pre_install(){
 
     # Set shadowsocks-libev config password
     echo "Please enter password for shadowsocks-libev:"
-    read -p "(Default password: xlovett.com):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="xlovett.com"
+    read -p "(Default password: 2033679):" shadowsockspwd
+    [ -z "${shadowsockspwd}" ] && shadowsockspwd="2033679"
     echo
     echo "---------------------------"
     echo "password = ${shadowsockspwd}"
@@ -495,7 +495,6 @@ install_shadowsocks(){
     echo -e "Your Password         : \033[41;37m ${shadowsockspwd} \033[0m"
     echo -e "Your Encryption Method: \033[41;37m ${shadowsockscipher} \033[0m"
     echo
-    echo "Welcome to visit:https://www.xlovett.com/1288.html"
     echo "Enjoy it!"
     echo
 }
