@@ -3,8 +3,7 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 #===================================================================#
 #   System Required:  CentOS 6 or 7                                 #
-#   Description: Install Shadowsocks-libev server for CentOS 6 or 7 #
-#   Author: Teddysun                                                #
+#   Description: Install Shadowsocks-libev server for CentOS 7      #
 #===================================================================#
 
 # Current folder
@@ -85,7 +84,7 @@ get_latest_version(){
     [ -z ${ver} ] && echo "Error: Get shadowsocks-libev latest version failed" && exit 1
     shadowsocks_libev_ver="shadowsocks-libev-$(echo ${ver} | sed -e 's/^[a-zA-Z]//g')"
     download_link="https://github.com/shadowsocks/shadowsocks-libev/releases/download/${ver}/${shadowsocks_libev_ver}.tar.gz"
-    init_script_link="https://raw.githubusercontent.com/xiechangan123/shadowsocks_install/master/shadowsocks-libev"
+    init_script_link="https://raw.githubusercontent.com/charlieethan/shadowsocks_install/master/shadowsocks-libev"
 }
 
 check_installed(){
@@ -115,7 +114,7 @@ check_version(){
 print_info(){
     clear
     echo "#############################################################"
-    echo "# Install Shadowsocks-libev server for CentOS 6 or 7        #"
+    echo "# Install Shadowsocks-libev server for CentOS 7             #"
     echo "# Github: https://github.com/shadowsocks/shadowsocks-libev  #"
     echo "#############################################################"
     echo
@@ -228,7 +227,7 @@ pre_install(){
     if check_sys sysRelease centos; then
         # Not support CentOS 5
         if centosversion 5; then
-            echo -e "[${red}Error${plain}] Not support CentOS 5, please change to CentOS 6 or 7 and try again."
+            echo -e "[${red}Error${plain}] Not support CentOS 5, please change to CentOS 7 and try again."
             exit 1
         fi
     else
