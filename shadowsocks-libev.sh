@@ -3,17 +3,17 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 #===================================================================#
 #   System Required:  CentOS 6 or 7                                 #
-#   Description: Install Shadowsocks-libev server for CentOS 7      #
+#   Description: Install Shadowsocks-libev server for CentOS 6 or 7 #
 #===================================================================#
 
 # Current folder
 cur_dir=`pwd`
 
 libsodium_file="libsodium-1.0.18"
-libsodium_url="https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz"
+libsodium_url="https://github.com/jedisct1/libsodium/releases/download/1.0.18-RELEASE/libsodium-1.0.18.tar.gz"
 
-mbedtls_file="mbedtls-2.16.3"
-mbedtls_url="https://tls.mbed.org/download/mbedtls-2.16.3-gpl.tgz"
+mbedtls_file="mbedtls-2.16.4"
+mbedtls_url="https://tls.mbed.org/download/mbedtls-2.16.4-gpl.tgz"
 
 # Stream Ciphers
 ciphers=(
@@ -80,7 +80,7 @@ get_char(){
 }
 
 get_latest_version(){
-    ver=$(wget --no-check-certificate -qO- https://api.github.com/repos/shadowsocks/shadowsocks-libev/releases/21110035 | grep 'tag_name' | cut -d\" -f4)
+    ver=$(wget --no-check-certificate -qO- https://api.github.com/repos/shadowsocks/shadowsocks-libev/releases/22730317 | grep 'tag_name' | cut -d\" -f4)
     [ -z ${ver} ] && echo "Error: Get shadowsocks-libev latest version failed" && exit 1
     shadowsocks_libev_ver="shadowsocks-libev-$(echo ${ver} | sed -e 's/^[a-zA-Z]//g')"
     download_link="https://github.com/shadowsocks/shadowsocks-libev/releases/download/${ver}/${shadowsocks_libev_ver}.tar.gz"
@@ -114,7 +114,7 @@ check_version(){
 print_info(){
     clear
     echo "#############################################################"
-    echo "# Install Shadowsocks-libev server for CentOS 7             #"
+    echo "# Install Shadowsocks-libev server for CentOS 6 or 7        #"
     echo "# Github: https://github.com/shadowsocks/shadowsocks-libev  #"
     echo "#############################################################"
     echo
@@ -227,7 +227,7 @@ pre_install(){
     if check_sys sysRelease centos; then
         # Not support CentOS 5
         if centosversion 5; then
-            echo -e "[${red}Error${plain}] Not support CentOS 5, please change to CentOS 7 and try again."
+            echo -e "[${red}Error${plain}] Not support CentOS 5, please change to CentOS 6 or 7 and try again."
             exit 1
         fi
     else
@@ -258,8 +258,8 @@ pre_install(){
 
     # Set shadowsocks-libev config password
     echo "Please enter password for shadowsocks-libev:"
-    read -p "(Default password: 2033679):" shadowsockspwd
-    [ -z "${shadowsockspwd}" ] && shadowsockspwd="2033679"
+    read -p "(Default password: password0):" shadowsockspwd
+    [ -z "${shadowsockspwd}" ] && shadowsockspwd="password0"
     echo
     echo "---------------------------"
     echo "password = ${shadowsockspwd}"
@@ -477,7 +477,7 @@ install_shadowsocks(){
         fi
     else
         echo
-        echo -e "[${red}Error${plain}] Shadowsocks-libev install failed. please visit https://teddysun.com/357.html and contact."
+        echo -e "[${red}Error${plain}] Shadowsocks-libev install failed. please try again"
         exit 1
     fi
 
