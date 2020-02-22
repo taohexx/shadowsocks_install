@@ -1,4 +1,4 @@
-- Download the Client from the [release](https://github.com/charlieethan/shadowsocks_install/releases/download/V2.0/Shadowsocks.zip)
+- Download the Client from the [release](https://github.com/charlieethan/shadowsocks_install/releases/download/V3.0/Shadowsocks.zip)
 
 - A successful example for `shadowsocks-libev` install on `CentOS 7` with `"Simple-Obfs"(Use Xshell 6 on Windows10)`,here's the steps.
 
